@@ -13,27 +13,35 @@ For preprocessing our images, we have used filters for varying saturation, contr
 
 
 #Running Models:
-Ensemble Model:
-For Ensemble learning, we have run 3 CNN models namely:
-1. MobileNetV2
-2. DenseNet121
-3. NasNetMobile
-and at last, we took 3 separate results from the 3 models and taken max voting in prediction stage.
+
+1.Ensemble Model:
+        For Ensemble learning, we have run 3 CNN models namely:
+        1. MobileNetV2
+        2. DenseNet121
+        3. NasNetMobile
+        and at last, we took 3 separate results from the 3 models and taken max voting in prediction stage.
+        
+        Result obtained : Accuracy - 75.33%
 
 #Concatenation Model 
 
-It joins( concatenate ) the output of features extracted by ( output  of globalpooling layer from this two model)   MobileNET and   DenseNet121. 
+        It joins( concatenate ) the output of features extracted by ( output  of globalpooling layer from this two model)   MobileNET   and   DenseNet121. 
 
-This is stronger model .
+        This is stronger model. It overfits badly, so we didn't prepare final result from it.
 
 
 #Single Model:
-We ran Mobilenet as a single model.
+        We ran Mobilenet as a single model. We used weights from imagenet as initial weights from covolutional layers. And drop the fully connected layer in the top and used our custom dense layer.
+        Accuracy : 80.0%
 
 #AutoEncoder Model:
-We trained Auntoencoder and then used the encoded image for our classification.
+        We trained Auntoencoder and then used the encodeder part of the autocoder for classification.
+        accuracy : 81.79%
+        this our best performing model.
+        confusion matrix:
+        [[326 144]
+        [112 841]]
 
-We have initialized the layers with the pre-trained model weights but then we have learned the weights for our particular datasets for all the layers.
 
 
 Result:
